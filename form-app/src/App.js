@@ -81,11 +81,17 @@ const App = () => {
     }
   };
 
+  const deleteEntry = (ID) => {
+    console.log(ID);
+    setUserArray(userArray.filter((user) => user.ID !== ID));
+    setTempArray(userArray);
+  };
+
   return (
     <div>
       <Form onSaveUser={saveUser} />
       <Search filter={filterHandler} value={searchEntry} />
-      <Table data={tempUserArray} />
+      <Table data={tempUserArray} delete={deleteEntry} />
     </div>
   );
 };
